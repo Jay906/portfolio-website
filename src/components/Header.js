@@ -116,15 +116,13 @@ function Header({ y }) {
   const [show, setShow] = useState(false);
   const [isBlack, setIsBlack] = useState(true);
 
-  const onScroll = (params) => {
-    const currentY = window.pageYOffset;
-    const black = currentY >= y ? false : true;
-    setIsBlack(black);
-  };
-
   useEffect(() => {
+    const onScroll = (params) => {
+      const currentY = window.pageYOffset;
+      const black = currentY >= y ? false : true;
+      setIsBlack(black);
+    };
     window.addEventListener("scroll", onScroll);
-    console.log();
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
