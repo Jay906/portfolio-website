@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const HeaderContainer = styled.header`
@@ -40,17 +41,18 @@ const HeaderContainer = styled.header`
   }
 
   .nav-show {
-    height: 265px;
+    height: 275px;
   }
 
   .nav-item {
     list-style-type: none;
     text-align: center;
-    padding: 1rem 0;
     border-bottom: 1px solid black;
   }
 
   .nav-item a {
+    display: block;
+    padding: 1rem 0;
     color: inherit;
     text-decoration: none;
     height: 100%;
@@ -134,7 +136,7 @@ function Header({ y }) {
         <div className="nav-header">
           <h3>Jelaleddin Atalykov</h3>
           <button className="button menu-button" onClick={() => setShow(!show)}>
-            <GiHamburgerMenu />
+            {show ? <AiOutlineClose /> : <GiHamburgerMenu />}
           </button>
         </div>
         <ul className={`${show ? "nav nav-show" : "nav"}`}>
